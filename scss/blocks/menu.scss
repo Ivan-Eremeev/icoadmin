@@ -1,6 +1,9 @@
 .menu {
+	font-size: 12px;
+	margin-left: 38px;
 	&_nav {
-		
+		display: flex;
+		align-items: center;
 	}
 	&_list {
 		text-align: center;
@@ -8,17 +11,17 @@
 	&_item {
 		display: inline-block;
 		vertical-align: middle;
+		margin-right: 22px;
 	}
 	&_link {
 		display: block;
 		padding: 10px 0;
-		margin: 0 10px;
 		text-decoration: none;
-		color: #fff;
-		@include line-fade();
+		color: $black;
+		text-transform: uppercase;
+		font-weight: 600;
 		&:hover {
-			color: #ccc;
-			border-color: #ccc;
+			color: $blue;
 		}
 	}
 	@media (max-width: $break_sm) {

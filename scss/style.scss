@@ -7,9 +7,9 @@
 
 // Переменные для кастомизации Mixingrid
 $columns: 12; // Колличество колонок
-$max-width: 1200px; // Максимальная ширина контейнера
-$gutter: 15px; // Расстояние между колонками
-$offset: 30px; // Поля контейнера
+$max-width: 1600px; // Максимальная ширина контейнера
+$gutter: 30px; // Расстояние между колонками
+$offset: 24px; // Поля контейнера
 $offset-sm: 15px; // Поля контейнера на мобилке
 // Брэйкпоинты
 $break_xl: 1400px;
@@ -27,6 +27,21 @@ $break_xs: 576px;
 
 // Шрифты
 // @include font-face("EastAP", "../fonts/EastAP/EastAP", bold, italic);
+@include font-face("Montserrat", "../fonts/Montserrat/Montserrat-Regular/Montserrat-Regular", normal, normal);
+@include font-face("Montserrat", "../fonts/Montserrat/Montserrat-Medium/Montserrat-Medium", 500, normal);
+@include font-face("Raleway", "../fonts/Raleway/Raleway-Light/Raleway-Light", 200, normal);
+@include font-face("Raleway", "../fonts/Raleway/Raleway-Regular/Raleway-Regular", normal, normal);
+@include font-face("Raleway", "../fonts/Raleway/Raleway-Medium/Raleway-Medium", 500, normal);
+@include font-face("Raleway", "../fonts/Raleway/Raleway-SemiBold/Raleway-SemiBold", 600, normal);
+@include font-face("Raleway", "../fonts/Raleway/Raleway-Bold/Raleway-Bold", 700, normal);
+@include font-face("Raleway", "../fonts/Raleway/Raleway-Bold-Italic/Raleway-Bold-Italic", 700, italic);
+@include font-face("Raleway", "../fonts/Raleway/Raleway-ExtraBold/Raleway-ExtraBold", 800, normal);
+@include font-face("Raleway", "../fonts/Raleway/Raleway-Black/Raleway-Black", 900, normal);
+
+// Цвета
+$blue: #1f3ca8;
+$grey: #f1f5f7;
+$black: #072b4c;
 
 // Блоки
 @import 'blocks/menu';
