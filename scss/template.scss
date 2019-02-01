@@ -6,48 +6,66 @@ body {
 	color: $black;
 	font-family: "Raleway";
 	font-size: 24px;
+	@media (max-width: $break_md) {
+		font-size: 22px;
+	}
 }
 h1 {
 	font-size: 56px;
 	font-weight: 800;
 	text-transform: uppercase;
+	@media (max-width: $break_md) {
+		font-size: 36px;
+	}
+	@media (max-width: $break_sm) {
+		font-size: 28px;
+	}
 }
 h2 {
 	font-size: 100px;
 	font-weight: 900;
 	text-transform: uppercase;
+	@media (max-width: $break_md) {
+		font-size: 56px;
+	}
+	@media (max-width: $break_sm) {
+		font-size: 46px;
+	}
 }
 h3 {
 	font-size: 44px;
 	font-weight: 800;
 	text-transform: uppercase;
+	@media (max-width: $break_md) {
+		font-size: 38px;
+	}
+	@media (max-width: $break_sm) {
+		font-size: 22px;
+	}
 }
 h4 {
 	font-size: 28px;
 	font-weight: 800;
 	text-transform: uppercase;
+	@media (max-width: $break_md) {
+		font-size: 22px;
+		font-weight: 900;
+	}
+	@media (max-width: $break_sm) {
+		font-size: 14px;
+	}
 }
 .wrapper {
 	@include wrapper();
 	padding-top: 20px;
 	position: relative;
+	overflow: hidden;
+	@media (max-width: $break_md) {
+		padding-top: 8px;
+	}
 }
 .row {
 	@include row-flex();
-}
-.btn {
-	display: inline-block;
-	padding: 16px 32px;
-	border: 1px solid $blue;
-	border-radius: 2px;
-	font-size: 18px;
-	color: $blue;
-	font-weight: 600;
-	text-decoration: none;
-	&:hover {
-		background-color: $blue;
-		color: #fff;
-	}
 }
 .btn {
 	display: inline-block;
@@ -72,6 +90,9 @@ h4 {
 			border-color: $black;
 		}
 	}
+	@media (max-width: $break_md) {
+		font-size: 12px;
+	}
 }
 .title-span {
 	color: $blue;
@@ -80,8 +101,12 @@ input {
 	padding: 11px 30px;
 	font-size: 18px;
 	&::placeholder {
-	color: $black;
-	font-weight: 200;
+		color: $black;
+		font-weight: 200;
+	}
+	@media (max-width: $break_md) {
+		padding: 7px 12px;
+		font-size: 12px;
 	}
 }
 
@@ -102,10 +127,44 @@ input {
 		margin-left: 34px;
 		letter-spacing: 0.8px;
 		font-weight: 700;
+		white-space: nowrap;
+	}
+	@media (max-width: $break_lg) {
+		padding-left: 100px;
+	}
+	@media (max-width: $break_md) {
+		padding-left: 54px;
+		padding-right: 20px;
+		padding-top: 30px;
+		.btn {
+			font-size: 10px;
+			padding: 10px 24px;
+			margin-left: 0;
+		}
+	}
+	@media (max-width: $break_sm) {
+		align-items: center;
+		padding: 14px 18px 0 18px;
+		.btn {
+			width: 164px;
+			margin-left: 8px;
+		}
 	}
 }
 .logo {
-
+	position: relative;
+	z-index: 999;
+	@media (max-width: $break_md) {
+		max-width: 115px;
+	}
+	@media (max-width: $break_sm) {
+		max-width: 117px;
+		width: 100%;
+	}
+}
+.hamburger {
+	position: relative;
+	z-index: 999;
 }
 
 .first-screen {
@@ -122,7 +181,7 @@ input {
 		margin-bottom: 13px;
 		text-transform: uppercase;
 		span {
-			font-size: 66px;
+			font-size: 60px;
 			line-height: 0;
 		}
 	}
@@ -147,6 +206,62 @@ input {
 		padding: 13px 35px;
 		&:nth-child(2) {
 			margin-left: 22px;
+		}
+	}
+	@media (max-width: $break_xl) {
+		&_img {
+			right: -150px;
+		}
+	}
+	@media (max-width: $break_lg) {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+	@media (max-width: $break_md) {
+		padding: 170px 48px 128px 48px;
+		&_block {
+			max-width: 400px;
+		}
+		&_img {
+			max-width: 510px;
+			top: 65px;
+			right: -150px;
+		}
+		&_title {
+			line-height: 1.2;
+			margin-bottom: 15px;
+			span {
+				font-size: 44px;
+			}
+		}
+		&_subtitle {
+			font-size: 22px;
+			margin-bottom: 30px;
+		}
+		.btn {
+			padding: 9px 24px;
+			&:nth-child(2) {
+				margin-left: 15px;
+			}
+		}
+	}
+	@media (max-width: $break_sm) {
+		padding: 400px 10px 30px 10px;
+		&_img {
+			width: 350px;
+			top: 40px;
+			left: 50%;
+			transform: translate(-50%,0);
+		}
+		&_title {
+			margin-bottom: 8px;
+		}
+		&_subtitle {
+			font-size: 18px;
+			margin-bottom: 25px;
+		}
+		.btn {
+			padding: 8px 17px;
 		}
 	}
 }
@@ -174,6 +289,11 @@ input {
 		}
 		&:nth-child(5) {
 			right: 13.3%;
+		}
+	}
+	@media (max-width: $break_sm) {
+		&_line {
+			display: none;
 		}
 	}
 }
@@ -214,6 +334,42 @@ input {
 			position: absolute;
 			top: 13px;
 			left: 1px;
+		}
+	}
+	@media (max-width: $break_xl) {
+		&_img {
+			left: 0;
+		}
+	}
+	@media (max-width: $break_lg) {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+	@media (max-width: $break_md) {
+		padding: 200px 40px 152px 40px;
+		&_block {
+			max-width: 320px;
+			margin-left: auto;
+		}
+		&_title {
+			line-height: 1.15;
+			margin-bottom: 17px;
+		}
+		&_text {
+			font-size: 16px;
+			padding-left: 50px;
+			&:after {
+				content: '';
+				display: block;
+				width: 35px;
+				top: 10px;
+			}
+		}
+		&_img {
+			max-width: 400px;
+			position: absolute;
+			top: 100px;
+			left: -40px;
 		}
 	}
 }
@@ -262,6 +418,29 @@ input {
 		z-index: 2;
 		img {
 			display: block;
+		}
+	}
+	@media (max-width: $break_lg) {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+	@media (max-width: $break_md) {
+		padding: 0 45px 61px 47px;
+		&_title {
+			margin-bottom: 50px;
+		}
+		&_subtitle {
+			margin-bottom: 18px;
+		}
+		&_col {
+			margin-bottom: 55px;
+		}
+		&_text {
+			font-size: 16px;
+		}
+		&_img {
+			max-width: 420px;
+			right: -60px;
 		}
 	}
 }
@@ -328,8 +507,14 @@ input {
 			left: 1px;
 		}
 	}
+	&_block {
+		max-width: 585px;
+		margin-left: auto;
+		position: relative;
+		z-index: 3;
+	}
 	&_form {
-		padding: 76px 65px 76px 484px;
+		padding: 76px 65px 76px 20px;
 		border: 5px solid $blue;
 		position: relative;
 	}
@@ -341,14 +526,10 @@ input {
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 25px;
-		position: relative;
-		z-index: 3;
 	}
 	&_input {
 		width: 100%;
 		margin-bottom: 25px;
-		position: relative;
-		z-index: 3;
 	}
 	&_input-half {
 		width: 48%;
@@ -367,5 +548,57 @@ input {
 		padding: 12px 30px;
 		position: relative;
 		z-index: 3;
+	}
+	@media (max-width: $break_lg) {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+	@media (max-width: $break_md) {
+		padding: 92px 47px 91px 47px;
+		&_head {
+			margin-bottom: 54px;
+		}
+		&_title {
+			line-height: 1.1;
+		}
+		&_text {
+			max-width: 300px;
+			font-size: 22px;
+			margin-right: 10px;
+		}
+		&_subtitle {
+			margin-bottom: 20px;
+		}
+		&_list {
+			margin-bottom: 66px;
+			font-size: 16px;
+		}
+		&_item {
+			margin-bottom: 11px;
+		}
+		&_block {
+			max-width: 430px;
+		}
+		&_form {
+			padding: 47px 35px 50px 20px;
+			margin-left: -80px;
+			margin-right: -40px;
+		}
+		&_subtitle-b {
+			margin-bottom: 22px;
+		}
+		&_row {
+			margin-bottom: 14px;
+		}
+		&_input {
+			margin-bottom: 15px;
+		}
+		.btn {
+			padding: 8px 23px;
+		}
+		&_img {
+			max-width: 356px;
+			left: -72px;
+		}
 	}
 }

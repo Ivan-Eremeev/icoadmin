@@ -11,24 +11,27 @@
   <body>
     <div class="wrapper">
       <header class="header"><a class="logo" href="index.html"><img src="img/logo.svg" alt="logo"></a>
-        <div class="menu">
+        <div class="menu menu--top" id="menu">
+          <button class="menu_btn hamburger hamburger--vortex" id="menu-btn" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
           <nav class="menu_nav">
-            <ul class="menu_list">
-              <li class="menu_item"><a class="menu_link" href="#">STO</a></li>
-              <li class="menu_item"><a class="menu_link" href="#">Products</a></li>
-              <li class="menu_item"><a class="menu_link" href="#">Сlient</a></li>
-              <li class="menu_item"><a class="menu_link" href="#">Mass Media</a></li>
-            </ul><a class="btn" href="#">STO Consultation</a>
+            <div class="menu_block">
+              <ul class="menu_list">
+                <li class="menu_item"><a class="menu_link" href="#">STO</a></li>
+                <li class="menu_item"><a class="menu_link" href="#">Products</a></li>
+                <li class="menu_item"><a class="menu_link" href="#">Сlient</a></li>
+                <li class="menu_item"><a class="menu_link" href="#">Mass Media</a></li>
+              </ul><a class="btn" href="#">STO Consultation</a>
+            </div>
           </nav>
         </div>
       </header>
       <section class="first-screen">
+        <div class="first-screen_img"><img src="img/Img-1.png" alt="image"></div>
         <div class="first-screen_block">
           <h1 class="first-screen_title">Superior Security Token Offering Provider<span class="title-span">.</span></h1>
           <div class="first-screen_subtitle">We will tokenize your business</div>
           <div class="first-screen_line"><a class="btn btn-dark" href="#">Create Security Token</a><a class="btn" href="#">Request Demo</a></div>
         </div>
-        <div class="first-screen_img"><img src="img/Img-1.png" alt="image"></div>
       </section>
       <div class="lines">
         <div class="lines_line"></div>
@@ -47,27 +50,27 @@
           <h3 class="advantages_title">STO has a plenty of advantages over ICO<span class="title-span">:</span></h3>
           <div class="row">
             <div class="advantages_col">
-              <div class="advantages_icon"><img src="img/icon-1.svg" alt="image"></div>
+              <div class="advantages_icon"><img src="img/Icon-1.svg" alt="image"></div>
               <h4 class="advantages_subtitle">Secure Market Conditions</h4>
               <p class="advantages_text">All the investments and rights of market players are protected by legal authorities</p>
             </div>
             <div class="advantages_col">
-              <div class="advantages_icon"><img src="img/icon-2.svg" alt="image"></div>
+              <div class="advantages_icon"><img src="img/Icon-2.svg" alt="image"></div>
               <h4 class="advantages_subtitle">Accredited Investors</h4>
               <p class="advantages_text">Only official and trustworthy investors will have an access for your tokens</p>
             </div>
             <div class="advantages_col">
-              <div class="advantages_icon"><img src="img/icon-3.svg" alt="image"></div>
+              <div class="advantages_icon"><img src="img/Icon-3.svg" alt="image"></div>
               <h4 class="advantages_subtitle">Securitized  assets</h4>
               <p class="advantages_text">STO tokens are more attractive for investors because of their legal essence</p>
             </div>
             <div class="advantages_col">
-              <div class="advantages_icon"><img src="img/icon-4.svg" alt="image"></div>
+              <div class="advantages_icon"><img src="img/Icon-4.svg" alt="image"></div>
               <h4 class="advantages_subtitle">Expanding Niche</h4>
               <p class="advantages_text">STO market is in phase of growth. There is a great opportunity to collect a big hard cap</p>
             </div>
             <div class="advantages_col">
-              <div class="advantages_icon"><img src="img/icon-5.svg" alt="image"></div>
+              <div class="advantages_icon"><img src="img/Icon-5.svg" alt="image"></div>
               <h4 class="advantages_subtitle">Equity Control</h4>
               <p class="advantages_text">You can easily manage your equity issuance on the start of STO</p>
             </div>
@@ -118,21 +121,20 @@
           </div>
         </div>
         <form class="consultation_form">
-          <h3 class="consultation_subtitle-b">Get Consultation</h3>
-          <div class="consultation_row">
-            <input class="consultation_input-half" type="text" name="name" placeholder="Name" requaired>
-            <input class="consultation_input-half" type="tel" name="tel" placeholder="Phone" requaired>
+          <div class="consultation_block">
+            <h3 class="consultation_subtitle-b">Get Consultation</h3>
+            <div class="consultation_row">
+              <input class="consultation_input-half" type="text" name="name" placeholder="Name" requaired>
+              <input class="consultation_input-half" type="tel" name="tel" placeholder="Phone" requaired>
+            </div>
+            <input class="consultation_input" type="email" name="email" placeholder="E-Mail" requaired>
+            <button class="btn btn-dark">Get Consultation</button>
           </div>
-          <input class="consultation_input" type="email" name="email" placeholder="E-Mail" requaired>
-          <button class="btn btn-dark">Get Consultation</button>
           <div class="consultation_img"><img src="img/Img-4.png" alt="image"></div>
         </form>
       </section>
     </div>
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/jquery.tinyscrollbar.min.js"></script>
-    <script src="js/tooltipster.bundle.min.js"></script>
-    <script src="js/wow.min.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

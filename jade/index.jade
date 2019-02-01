@@ -9,19 +9,26 @@ block content
 		header.header
 			a(href="index.html").logo
 				img(src="img/logo.svg", alt="logo")
-			.menu
+			#menu.menu.menu--top
+				button#menu-btn.menu_btn.hamburger.hamburger--vortex(type="button")
+					span.hamburger-box
+						span.hamburger-inner
 				nav.menu_nav
-					ul.menu_list
-						li.menu_item
-							a(href="#").menu_link STO
-						li.menu_item
-							a(href="#").menu_link Products
-						li.menu_item
-							a(href="#").menu_link Сlient
-						li.menu_item
-							a(href="#").menu_link Mass Media
-					a(href="#").btn STO Consultation
+					.menu_block
+						ul.menu_list
+							li.menu_item
+								a(href="#").menu_link STO
+							li.menu_item
+								a(href="#").menu_link Products
+							li.menu_item
+								a(href="#").menu_link Сlient
+							li.menu_item
+								a(href="#").menu_link Mass Media
+						a(href="#").btn STO Consultation
+
 		section.first-screen
+			.first-screen_img
+				img(src="img/Img-1.png", alt="image")
 			.first-screen_block
 				h1.first-screen_title Superior Security Token Offering Provider
 					span.title-span .
@@ -29,8 +36,6 @@ block content
 				.first-screen_line
 					a(href="#").btn.btn-dark Create Security Token
 					a(href="#").btn Request Demo
-			.first-screen_img
-				img(src="img/Img-1.png", alt="image")
 
 		.lines
 			.lines_line
@@ -53,27 +58,27 @@ block content
 				.row
 					.advantages_col
 						.advantages_icon
-							img(src="img/icon-1.svg", alt="image")
+							img(src="img/Icon-1.svg", alt="image")
 						h4.advantages_subtitle Secure Market Conditions
 						p.advantages_text All the investments and rights of market players are protected by legal authorities
 					.advantages_col
 						.advantages_icon
-							img(src="img/icon-2.svg", alt="image")
+							img(src="img/Icon-2.svg", alt="image")
 						h4.advantages_subtitle Accredited Investors
 						p.advantages_text Only official and trustworthy investors will have an access for your tokens
 					.advantages_col
 						.advantages_icon
-							img(src="img/icon-3.svg", alt="image")
+							img(src="img/Icon-3.svg", alt="image")
 						h4.advantages_subtitle Securitized  assets
 						p.advantages_text STO tokens are more attractive for investors because of their legal essence
 					.advantages_col
 						.advantages_icon
-							img(src="img/icon-4.svg", alt="image")
+							img(src="img/Icon-4.svg", alt="image")
 						h4.advantages_subtitle Expanding Niche
 						p.advantages_text STO market is in phase of growth. There is a great opportunity to collect a big hard cap
 					.advantages_col
 						.advantages_icon
-							img(src="img/icon-5.svg", alt="image")
+							img(src="img/Icon-5.svg", alt="image")
 						h4.advantages_subtitle Equity Control
 						p.advantages_text You can easily manage your equity issuance on the start of STO
 					.advantages_col
@@ -115,12 +120,13 @@ block content
 						li.consultation_item E-mail distribution;
 						li.consultation_item Brand awareness.
 			form.consultation_form
-				h3.consultation_subtitle-b Get Consultation
-				.consultation_row
-					input.consultation_input-half(type="text" name="name" placeholder="Name" requaired)
-					input.consultation_input-half(type="tel" name="tel" placeholder="Phone" requaired)
-				input.consultation_input(type="email" name="email" placeholder="E-Mail" requaired)
-				button.btn.btn-dark Get Consultation
+				.consultation_block
+					h3.consultation_subtitle-b Get Consultation
+					.consultation_row
+						input.consultation_input-half(type="text" name="name" placeholder="Name" requaired)
+						input.consultation_input-half(type="tel" name="tel" placeholder="Phone" requaired)
+					input.consultation_input(type="email" name="email" placeholder="E-Mail" requaired)
+					button.btn.btn-dark Get Consultation
 				.consultation_img
 					img(src="img/Img-4.png", alt="image")
 
@@ -130,10 +136,10 @@ block js
 	//- script(src="js/slick.min.js")
 	//- script(src="js/jquery.matchHeight-min.js")
 	//- script(src="js/jquery.inputmask.bundle.min.js")
-	script(src="js/jquery.tinyscrollbar.min.js")
+	//- script(src="js/jquery.tinyscrollbar.min.js")
 	//- script(src="js/autosize.min.js")
-	script(src="js/tooltipster.bundle.min.js")
+	//- script(src="js/tooltipster.bundle.min.js")
 	//- script(src="js/jquery.mmenu.all.js")
-	script(src="js/wow.min.js")
+	//- script(src="js/wow.min.js")
 	//- script(src="js/fullpage.min.js")
 	script(src="js/script.js")

@@ -3,8 +3,8 @@ $(document).ready(function () {
 	// libs-settings/fancybox_settings.js
 	// libs-settings/mmenu_settings.js
 	// libs-settings/slick_settings.js
-	// @prepros-prepend libs-settings/wow_js_settings.js
-	// @prepros-prepend libs-settings/fullpage_settings.js
+	// libs-settings/wow_js_settings.js
+	// libs-settings/fullpage_settings.js
 
 	// Брэйкпоинты js
 	var mediaXs = 576,
@@ -80,71 +80,71 @@ $(document).ready(function () {
 	// }
 
 	// Табы
-	$('.tabs_trigger').find('li').click(function() {
-		var trigger = $(this),
-				allTrigger = trigger.siblings();
-				content = trigger.parent().siblings('.tabs_content').find('div'),
-				index = trigger.index();
-		allTrigger.removeClass('active');
-		trigger.addClass('active');
-		content.addClass('hide');
-		content.eq(index).removeClass('hide');
-	});
+	// $('.tabs_trigger').find('li').click(function() {
+	// 	var trigger = $(this),
+	// 			allTrigger = trigger.siblings();
+	// 			content = trigger.parent().siblings('.tabs_content').find('div'),
+	// 			index = trigger.index();
+	// 	allTrigger.removeClass('active');
+	// 	trigger.addClass('active');
+	// 	content.addClass('hide');
+	// 	content.eq(index).removeClass('hide');
+	// });
 
 	// Аккордеон
-	$('.accordeon_trigger').click(function() {
-		var trigger = $(this),
-				allTrigger = trigger.parent().parent().find('.accordeon_trigger'),
-				content = trigger.siblings('.accordeon_content'),
-				allContent = trigger.parent().parent().find('.accordeon_content'),
-				time = 300;
-		if (!content.hasClass('open')) {
-			allContent.stop().slideUp(time).removeClass('open');
-			content.stop().slideDown(time).addClass('open');
-			allTrigger.removeClass('active');
-			trigger.addClass('active');
-		}
-		else {
-			content.stop().slideUp(time).removeClass('open');
-			trigger.removeClass('active');
-		}
-	});
+	// $('.accordeon_trigger').click(function() {
+	// 	var trigger = $(this),
+	// 			allTrigger = trigger.parent().parent().find('.accordeon_trigger'),
+	// 			content = trigger.siblings('.accordeon_content'),
+	// 			allContent = trigger.parent().parent().find('.accordeon_content'),
+	// 			time = 300;
+	// 	if (!content.hasClass('open')) {
+	// 		allContent.stop().slideUp(time).removeClass('open');
+	// 		content.stop().slideDown(time).addClass('open');
+	// 		allTrigger.removeClass('active');
+	// 		trigger.addClass('active');
+	// 	}
+	// 	else {
+	// 		content.stop().slideUp(time).removeClass('open');
+	// 		trigger.removeClass('active');
+	// 	}
+	// });
 
 	// Модальное окно
-	$('.modal-trigger').on('click', function() {
-		var data = $(this).data('modal'),
-				modalOver = $('.modal_over'),
-				modal = $('#modal-' + data);
-		modal.toggleClass('open')
-		.next('.modal_over').toggleClass('open');
-		$('.modal_close').on('click', function() {
-			modal.removeClass('open'),
-			modalOver.removeClass('open');
-		});
-		modalOver.on('click', function() {
-			modal.removeClass('open');
-			modalOver.removeClass('open');
-		});
-	});
+	// $('.modal-trigger').on('click', function() {
+	// 	var data = $(this).data('modal'),
+	// 			modalOver = $('.modal_over'),
+	// 			modal = $('#modal-' + data);
+	// 	modal.toggleClass('open')
+	// 	.next('.modal_over').toggleClass('open');
+	// 	$('.modal_close').on('click', function() {
+	// 		modal.removeClass('open'),
+	// 		modalOver.removeClass('open');
+	// 	});
+	// 	modalOver.on('click', function() {
+	// 		modal.removeClass('open');
+	// 		modalOver.removeClass('open');
+	// 	});
+	// });
 
 	// Стилизация полосы прокрутки
-	$('#scrollbar1').tinyscrollbar({
-		axis: "y", // Направление оси
-		// trackSize: 100, // Высота дорожки
-		thumbSize: 50, // Высота тамба
-		// thumbSizeMin: 100, // Минимальная высота тамба
-		wheel: true, // Отключить прокрутку
-		wheelSpeed: 10, // Прокручивать пикселей
-	});
+	// $('#scrollbar1').tinyscrollbar({
+	// 	axis: "y", // Направление оси
+	// 	// trackSize: 100, // Высота дорожки
+	// 	thumbSize: 50, // Высота тамба
+	// 	// thumbSizeMin: 100, // Минимальная высота тамба
+	// 	wheel: true, // Отключить прокрутку
+	// 	wheelSpeed: 10, // Прокручивать пикселей
+	// });
 
-	$('#scrollbar2').tinyscrollbar({
-		axis: "y", // Направление оси
-		// trackSize: 100, // Высота дорожки
-		thumbSize: 50, // Высота тамба
-		// thumbSizeMin: 100, // Минимальная высота тамба
-		wheel: true, // Отключить прокрутку
-		wheelSpeed: 10, // Прокручивать пикселей
-	});
+	// $('#scrollbar2').tinyscrollbar({
+	// 	axis: "y", // Направление оси
+	// 	// trackSize: 100, // Высота дорожки
+	// 	thumbSize: 50, // Высота тамба
+	// 	// thumbSizeMin: 100, // Минимальная высота тамба
+	// 	wheel: true, // Отключить прокрутку
+	// 	wheelSpeed: 10, // Прокручивать пикселей
+	// });
 
 	// matchHeight // Задание елементам одинаковой высоты
 	// $('.item').matchHeight();
@@ -188,28 +188,28 @@ $(document).ready(function () {
 	// countNumber();
 
 	// Tooltipster Всплывающая подсказка
-	var tooltip = $('.tooltip').tooltipster({
-		theme : 'tooltipster-noir', // Тема
-		delayTouch: 0, // Задержка при наведении
-   	trigger: 'click', // Появление при наведении, клике
-   	maxWidth: 200, // Максимальная ширина
-   	contentAsHTML: true, // HTML контент
-   	interactive: true,
-   	side:  ['right', 'top', 'bottom', 'left'], // Появление по сторонам по порядку
-   	zIndex: 97, // z-index
-	});
+	// var tooltip = $('.tooltip').tooltipster({
+	// 	theme : 'tooltipster-noir', // Тема
+	// 	delayTouch: 0, // Задержка при наведении
+ //   	trigger: 'click', // Появление при наведении, клике
+ //   	maxWidth: 200, // Максимальная ширина
+ //   	contentAsHTML: true, // HTML контент
+ //   	interactive: true,
+ //   	side:  ['right', 'top', 'bottom', 'left'], // Появление по сторонам по порядку
+ //   	zIndex: 97, // z-index
+	// });
 
 	// Отключение подсказки на мобильных
-	function tooltipDisable() {
-		if (window.matchMedia('(max-width: 720px)').matches) {
-			tooltip.tooltipster('disable');
-		}
-		else if (window.matchMedia('(min-width: 721px)').matches) {
-			tooltip.tooltipster('enable');
-		}
-	};
+	// function tooltipDisable() {
+	// 	if (window.matchMedia('(max-width: 720px)').matches) {
+	// 		tooltip.tooltipster('disable');
+	// 	}
+	// 	else if (window.matchMedia('(min-width: 721px)').matches) {
+	// 		tooltip.tooltipster('enable');
+	// 	}
+	// };
 
-	tooltipDisable();
+	// tooltipDisable();
 
 	// Слежение за изменением размера окна браузера
 	// $(window).resize(function() {
