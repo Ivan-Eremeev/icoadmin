@@ -53,14 +53,14 @@ $(document).ready(function () {
 	// });
 
 	// Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
-	// var HeaderTop = $('#header').offset().top;
-	// $(window).scroll(function(){
-	// 	if( $(window).scrollTop() > HeaderTop ) {
-	// 		$('#header').addClass('stiky');
-	// 	} else {
-	// 		$('#header').removeClass('stiky');
-	// 	}
-	// });
+	var HeaderTop = $('#header').offset().top;
+	$(window).scroll(function(){
+		if( $(window).scrollTop() > HeaderTop ) {
+			$('#header').addClass('stiky');
+		} else {
+			$('#header').removeClass('stiky');
+		}
+	});
 
 	// Inputmask.js // Маска для поля ввода телефона
 	// $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });

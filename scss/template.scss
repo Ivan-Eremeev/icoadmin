@@ -57,6 +57,7 @@ h4 {
 }
 .wrapper {
 	@include wrapper();
+	width: 100%;
 	padding-top: 20px;
 	position: relative;
 	overflow: hidden;
@@ -111,15 +112,17 @@ input {
 }
 
 .header {
-	display: flex;
-	position: fixed;
 	width: 100%;
-	padding-left: 226px;
-	padding-top: 50px;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 5;
+	transition: .3s;
+	.wrapper {
+		display: flex;
+		padding-left: 226px;
+		padding-top: 50px;
+	}
 	.btn {
 		font-size: 12px;
 		padding: 10px 15px;
@@ -129,13 +132,25 @@ input {
 		font-weight: 700;
 		white-space: nowrap;
 	}
+	&.stiky {
+		position: fixed;
+		background-color: #fff;
+		padding-bottom: 50px;
+	}
 	@media (max-width: $break_lg) {
-		padding-left: 100px;
+		.wrapper {
+			padding-left: 100px;
+		}
 	}
 	@media (max-width: $break_md) {
-		padding-left: 54px;
-		padding-right: 20px;
-		padding-top: 30px;
+		.wrapper {
+			padding-left: 54px;
+			padding-right: 20px;
+			padding-top: 30px;
+		}
+		&.stiky {
+			padding-bottom: 30px;
+		}
 		.btn {
 			font-size: 10px;
 			padding: 10px 24px;
@@ -143,8 +158,13 @@ input {
 		}
 	}
 	@media (max-width: $break_sm) {
-		align-items: center;
-		padding: 14px 18px 0 18px;
+		.wrapper {
+			align-items: center;
+			padding: 14px 18px 0 18px;
+		}
+		&.stiky {
+			padding-bottom: 14px;
+		}
 		.btn {
 			width: 164px;
 			margin-left: 8px;
@@ -165,7 +185,11 @@ input {
 .hamburger {
 	position: relative;
 	z-index: 999;
+	@media (max-width: $break_sm) {
+		margin-top: -8px;
+	}
 }
+
 
 .first-screen {
 	padding: 213px 207px 184px 207px;
@@ -252,6 +276,10 @@ input {
 			top: 40px;
 			left: 50%;
 			transform: translate(-50%,0);
+		}
+		&_block {
+			margin-left: auto;
+			margin-right: auto;
 		}
 		&_title {
 			margin-bottom: 8px;
@@ -372,6 +400,27 @@ input {
 			left: -40px;
 		}
 	}
+	@media (max-width: $break_sm) {
+		padding: 475px 14px 92px 14px;
+		&_img {
+			width: 330px;
+			left: 50%;
+			top: 72px;
+			transform: translate(-50%,0);
+		}
+		&_block {
+			margin-right: auto;
+		}
+		&_title {
+			margin-bottom: 22px;
+		}
+		&_text {
+			padding-left: 0;
+			&:after {
+				display: none;
+			}
+		}
+	}
 }
 
 .advantages {
@@ -389,6 +438,7 @@ input {
 	}
 	&_col {
 		@include col(4);
+		@include col-sm(6);
 		padding-top: 129px;
 		margin-bottom: 64px;
 		position: relative;
@@ -443,6 +493,31 @@ input {
 			right: -60px;
 		}
 	}
+	@media (max-width: $break_sm) {
+		padding: 0 5px 52px 13px;
+		&_title {
+			margin-bottom: 42px;
+		}
+		&_col {
+			padding-top: 108px;
+			margin-bottom: 50px;
+		}
+		&_subtitle {
+			max-width: 140px;
+			margin-bottom: 12px;
+		}
+		&_icon {
+			width: 83px;
+		}
+		&_text {
+			font-size: 14px;
+			letter-spacing: 0;
+			line-height: 1.5;
+		}
+		&_img {
+			width: 308px;
+		}
+	}
 }
 
 .consultation {
@@ -467,6 +542,7 @@ input {
 	}
 	&_col {
 		@include col(4);
+		@include col-sm(12);
 		position: relative;
 		padding-top: 45px;
 		&:after {
@@ -599,6 +675,70 @@ input {
 		&_img {
 			max-width: 356px;
 			left: -72px;
+		}
+	}
+	@media (max-width: $break_sm) {
+		padding: 88px 20px 32px 20px;
+		margin-left: -8px;
+		margin-right: -8px;
+		&_head {
+			flex-wrap: wrap;
+			margin-bottom: 32px;
+		}
+		&_title {
+			width: 100%;
+			margin-left: 0;
+			margin-bottom: 12px;
+			line-height: 1.2;
+		}
+		&_text {
+			width: 100%;
+			margin: 0;
+			font-size: 18px;
+		}
+		&_col {
+			&:after {
+				left: 30px;
+			}
+		}
+		&_subtitle {
+			font-size: 22px;
+			margin-bottom: 25px;
+			white-space: nowrap;
+		}
+		&_list {
+			margin-bottom: 48px;
+		}
+		&_item {
+			white-space: nowrap;
+			margin-bottom: 10px;
+		}
+		&_img {
+			width: 400px;
+			left: 47%;
+			bottom: calc(100% + 5px);
+			transform: translate(-50%,0);
+		}
+		&_form {
+			margin-left: -12px;
+			margin-right: -12px;
+			margin-top: 365px;
+			padding: 49px 27px 42px 27px;
+		}
+		&_subtitle-b {
+			letter-spacing: 0.5px;
+		}
+		&_row {
+			flex-wrap: wrap;
+			margin-bottom: 0;
+		}
+		&_block {
+			max-width: 1000px;
+			margin-left: 0;
+		}
+		&_input-half {
+			width: 100%;
+			margin-bottom: 16px;
 		}
 	}
 }
