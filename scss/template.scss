@@ -73,6 +73,7 @@ h4 {
 	padding: 16px 32px;
 	border: 1px solid $blue;
 	background-color: transparent;
+	font-family: "Raleway";
 	font-size: 18px;
 	color: $blue;
 	font-weight: 600;
@@ -101,9 +102,9 @@ h4 {
 input {
 	padding: 11px 30px;
 	font-size: 18px;
+	font-family: "Raleway";
 	&::placeholder {
 		color: $black;
-		font-weight: 200;
 	}
 	@media (max-width: $break_md) {
 		padding: 7px 12px;
@@ -122,6 +123,7 @@ input {
 		display: flex;
 		padding-left: 226px;
 		padding-top: 50px;
+		transition: .3s;
 	}
 	.btn {
 		font-size: 12px;
@@ -135,7 +137,10 @@ input {
 	&.stiky {
 		position: fixed;
 		background-color: #fff;
-		padding-bottom: 50px;
+		padding-bottom: 20px;
+		.wrapper {
+			padding-top: 20px;
+		}
 	}
 	@media (max-width: $break_lg) {
 		.wrapper {
@@ -143,13 +148,16 @@ input {
 		}
 	}
 	@media (max-width: $break_md) {
+		&.stiky {
+			padding-bottom: 15px;
+			.wrapper {
+				padding-top: 15px;
+			}
+		}
 		.wrapper {
 			padding-left: 54px;
 			padding-right: 20px;
 			padding-top: 30px;
-		}
-		&.stiky {
-			padding-bottom: 30px;
 		}
 		.btn {
 			font-size: 10px;
@@ -163,7 +171,10 @@ input {
 			padding: 14px 18px 0 18px;
 		}
 		&.stiky {
-			padding-bottom: 14px;
+			padding-bottom: 10px;
+			.wrapper {
+				padding-top: 10px;
+			}
 		}
 		.btn {
 			width: 164px;
@@ -316,7 +327,26 @@ input {
 			right: 30%;
 		}
 		&:nth-child(5) {
-			right: 13.3%;
+			right: 13.1%;
+		}
+	}
+	@media (max-width: $break_md) {
+		&_line {
+			&:nth-child(1) {
+				left: 4%;
+			}
+			&:nth-child(2) {
+				left: 34%;
+			}
+			&:nth-child(3) {
+				display: none;
+			}
+			&:nth-child(4) {
+				right: 34%;
+			}
+			&:nth-child(5) {
+				right: 4%;
+			}
 		}
 	}
 	@media (max-width: $break_sm) {
@@ -740,5 +770,119 @@ input {
 			width: 100%;
 			margin-bottom: 16px;
 		}
+	}
+}
+
+.clients {
+	padding: 202px 100px 109px 205px;
+	position: relative;
+	z-index: 2;
+	&_title {
+		max-width: 700px;
+		line-height: 1;
+	}
+	&_img {
+		max-width: 454px;
+		position: absolute;
+		top: 86px;
+		right: 177px;
+	}
+	&_item {
+		width: 360px;
+  	height: 234px;
+  	margin-left: auto;
+  	margin-right: auto;
+		background-color: #fff;
+		border: 1px solid $grey;
+	}
+	&_icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 135px;
+		padding: 61px;
+		border-bottom: 1px solid $grey;
+		&--1 {
+
+		}
+		&--2 {
+			
+		}
+		&--3 {
+			img {
+				max-width: 180px;
+			}
+		}
+		&--4 {
+			
+		}
+		&--5 {
+			
+		}
+		&--6 {
+			
+		}
+		&--7 {
+			
+		}
+		&--8 {
+			
+		}
+		&--9 {
+			
+		}
+		&--10 {
+			
+		}
+		img {
+			display: inline-block;
+		}
+	}
+	&_progress {
+		padding: 21px 24px 0;
+	}
+	&_money {
+		margin-bottom: 7px;
+		font-family: "Montserrat";
+		font-size: 32px;
+		color: $blue;
+		font-weight: 500;
+	}
+	&_line {
+		background-color: $grey;
+		span {
+			display: block;
+			height: 8px;
+			background-color: $blue;
+		}
+	}
+}
+.slider {
+	position: relative;
+	margin-left: -24px;
+	margin-right: -24px;
+	padding-bottom: 102px;
+}
+.sliderButton {
+	width: 46px;
+	height: 46px;
+	border: 1px solid $grey;
+	border-radius: 2px;
+	transition: .3s;
+	font-size: 40px;
+	color: #a1acb9;
+	text-align: center;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	&_prev {
+		left: 204px;
+	}
+	&_next {
+		left: 263px;		
+	}
+	&:hover {
+		background-color: #a1acb9;
+		color: #fff
 	}
 }
