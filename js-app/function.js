@@ -147,7 +147,7 @@ $(document).ready(function () {
 	// });
 
 	// matchHeight // Задание елементам одинаковой высоты
-	// $('.item').matchHeight();
+	$('.mass-media_description').matchHeight();
 
 	// Autosize Изменение высоты текстового поля при добавлении контента
 	// autosize($('textarea'));

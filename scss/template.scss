@@ -34,7 +34,7 @@ h2 {
 }
 h3 {
 	font-size: 44px;
-	font-weight: 800;
+	font-weight: 900;
 	text-transform: uppercase;
 	@media (max-width: $break_md) {
 		font-size: 38px;
@@ -774,7 +774,7 @@ input {
 }
 
 .clients {
-	padding: 202px 100px 109px 205px;
+	padding: 202px 100px 50px 205px;
 	position: relative;
 	z-index: 2;
 	&_title {
@@ -857,6 +857,12 @@ input {
 		}
 	}
 }
+.slider-block {
+	margin-top: 110px;
+	margin-left: -205px;
+	margin-right: -100px;
+	position: relative;
+}
 .slider {
 	position: relative;
 	margin-left: -24px;
@@ -866,10 +872,11 @@ input {
 .sliderButton {
 	width: 46px;
 	height: 46px;
+	padding-top: 5px;
 	border: 1px solid $grey;
 	border-radius: 2px;
 	transition: .3s;
-	font-size: 40px;
+	font-size: 35px;
 	color: #a1acb9;
 	text-align: center;
 	cursor: pointer;
@@ -884,5 +891,296 @@ input {
 	&:hover {
 		background-color: #a1acb9;
 		color: #fff
+	}
+}
+.slick-slide {
+	outline: none;
+}
+
+.mass-media {
+	display: flex;
+	padding-top: 130px;
+	padding-bottom: 50px;
+	position: relative;
+	z-index: 2;
+	&_left {
+		width: 40%;
+		padding-top: 527px;
+		padding-bottom: 50px;
+		position: relative;
+	}
+	&_img {
+		width: 453px;
+		position: absolute;
+		top: -59px;
+		left: 62%;
+		transform: translate(-50%,0);
+	}
+	&_title {
+		max-width: 416px;
+		margin-left: auto;
+		line-height: 1;
+	}
+	&_right {
+		width: 60%;
+		padding: 0 239px 0 74px;
+	}
+	&_col {
+		@include col(6);
+		margin-bottom: $gutter;
+	}
+	&_item {
+		border: 1px solid $grey;
+		&--market-watch {
+			.mass-media_subtitle {
+				img {
+					max-width: 246px;
+				}
+			}
+			.mass-media_description {
+				padding-bottom: 30px;
+			}
+		}
+		&--dijital-journal {
+			.mass-media_subtitle {
+				img {
+					max-width: 246px;
+				}
+			}
+			.mass-media_description {
+				padding-bottom: 26px;
+			}
+		}
+		&--coinspectator {
+			.mass-media_subtitle {
+				img {
+					max-width: 216px;
+				}
+			}
+			.mass-media_description {
+				padding: 10px 10px 0px 10px;
+				background-color: #252831;
+			}
+		}
+		&--yahoo {
+			.mass-media_subtitle {
+				img {
+					max-width: 107px;
+				}
+			}
+			.mass-media_description {
+				padding: 5px 5px 5px 5px;
+			}
+		}
+	}
+	&_subtitle {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 62px;
+		padding: 10px;
+		background-color: $grey;
+	}
+	&_description {
+		padding: 0 22px 22px 22px;
+		img {
+			display: block;
+		}
+	}
+	&_btn {
+
+	}
+}
+
+.team {
+	padding: 51px 204px;
+	position: relative;
+	z-index: 2;
+	&_title {
+		margin-bottom: 26px;
+	}
+	&_text {
+		max-width: 752px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 65px;
+		letter-spacing: 1px;
+		line-height: 1.5;
+	}
+	&_row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&_col {
+		display: flex;	
+		&:nth-child(1) {
+			width: 25.6%;
+			padding-top: 64px;
+		}
+		&:nth-child(2) {
+			width: 25.8%;
+			padding-top: 96px;
+		}
+		&:nth-child(3) {
+			width: 25.7%;
+		}
+		&:nth-child(4) {
+			width: 22.9%;
+			padding-top: 56px;
+		}
+		&:nth-child(5) {
+			width: 25.6%;
+			padding-top: 55px;
+			.team_item {
+				margin-left: auto;
+			}
+		}
+		&:nth-child(6) {
+			width: 25.8%;
+			padding-top: 77px;
+			.team_item {
+				margin-left: auto;
+			}
+		}
+		&:nth-child(7) {
+			width: 25.7%;
+			.team_item {
+				margin-left: auto;
+			}
+		}
+		&:nth-child(8) {
+			width: 22.9%;
+			padding-top: 77px;
+			.team_item {
+				margin-left: auto;
+			}
+		}
+		&:nth-child(9) {
+			width: 25.6%;
+			padding-top: 33px;
+		}
+		&:nth-child(10) {
+			width: 25.8%;
+			padding-top: 77px;
+		}
+		&:nth-child(11) {
+			width: 25.7%;
+			padding-top: 69px;
+		}
+		&:nth-child(12) {
+			width: 22.9%;
+		}
+	}
+	&_item {
+
+	}
+	&_img {
+		max-width: 195px;
+		margin-bottom: 32px;
+		background-color: $grey;
+		img {
+			display: block;
+		}
+	}
+	&_name {
+		font-size: 28px;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom: 5px;
+	}
+	&_position {
+		max-width: 200px;
+		font-size: 18px;
+		font-weight: 600;
+		color: $blue;
+	}
+}
+
+.partners {
+	padding: 102px 201px 0 201px;
+	position: relative;
+	z-index: 2;
+	&_title {
+		margin-bottom: 48px;
+		letter-spacing: 1px;
+	}
+	&_row {
+		padding: 0 3px;
+	}
+	&_col {
+		@include col(3);
+		margin-bottom: $gutter;
+	}
+	&_item {
+		height: 142px;
+		padding: 33px 20px 0 20px;
+		border: 1px solid $grey;
+	}
+	&_icon {
+		text-align: center;
+		&--sumsub {
+			img {
+				max-width: 115px;
+			}
+		}
+		&--juryonline {
+			img {
+				max-width: 119px;
+			}
+		}
+		&--moonrate {
+			img {
+				max-width: 199px;
+			}
+		}
+		&--trackico {
+			img {
+				max-width: 168px;
+				margin-top: 9px;
+			}
+		}
+	}
+	img {
+
+	}
+	&_block {
+		margin-top: 165px;
+		padding: 121px 50px 120px 205px;
+		background-color: $grey;
+		margin-left: -201px;
+		margin-right: -201px;
+		position: relative;
+	}
+	&_form {
+		max-width: 650px;
+	}
+	&_subtitle {
+		margin-bottom: 35px;
+		letter-spacing: 1px;
+	}
+	&_line {
+
+	}
+	&_input {
+		width: 100%;
+		max-width: 390px;
+		margin-right: 19px;
+	}
+	&_btn {
+		padding: 12px 31px;
+	}
+	&_img {
+		max-width: 500px;
+		position: absolute;
+		top: -53px;
+		right: 162px;
+	}
+}
+
+.footer {
+	padding: 59px 204px;
+	&_copyright {
+		font-size: 16px;
 	}
 }
