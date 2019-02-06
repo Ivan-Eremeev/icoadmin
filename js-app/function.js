@@ -1,10 +1,6 @@
 $(document).ready(function () {
 
-	// libs-settings/fancybox_settings.js
-	// libs-settings/mmenu_settings.js
-	//= libs-settings/slick_settings.js
-	// libs-settings/wow_js_settings.js
-	// libs-settings/fullpage_settings.js
+	// @prepros-prepend libs-settings/slick_settings.js
 
 	// Брэйкпоинты js
 	var mediaXs = 576,

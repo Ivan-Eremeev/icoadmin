@@ -1,3 +1,0 @@
-$('#fullpage').fullpage({
-		
-});
