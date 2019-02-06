@@ -15,6 +15,14 @@
 		display: inline-block;
 		vertical-align: middle;
 		margin-right: 22px;
+		transition: .3s;
+		border-bottom: 1px solid transparent;
+		&.active {
+			border-color: $blue;
+			.menu_link {
+				color: $blue;
+			}
+		}
 	}
 	&_link {
 		display: block;

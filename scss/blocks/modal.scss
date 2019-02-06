@@ -1,6 +1,6 @@
 .modal {
 	width: 100%;
-	max-width: 600px;
+	max-width: 543px;
 	padding: 20px;
 	position: fixed;
 	top: 50%;
@@ -15,44 +15,166 @@
 	}
 	&_content {
 		position: relative;
-		padding: 30px;
-		background-color: #666;
+		padding: 48px 40px;
+		background-color: #fff;
 		box-shadow: 5px 5px 11px 0px rgba(0, 0, 0, 0.3);
-		border-radius: 5px;
-		color: #fff;
+		border-radius: 2px;
+	}
+	&_title {
+		letter-spacing: 1px;
+		margin-bottom: 30px;
+	}
+	&_input {
+		margin-bottom: 24px;
+		position: relative;
+		input {
+			width: 100%;
+			height: 47px;
+			padding: 0 15px;
+			border: 1px solid $blue;
+			border-radius: 0px;
+		}
+		label {
+			position: absolute;
+			top: 50%;
+			left: 25px;
+			transform: translate(0,-50%);
+			font-size: 18px;
+		}
+		&--tel {
+			border: 1px solid $blue;
+			display: flex;
+			.modal_select {
+				display: none;
+				width: 33%;
+				position: relative;
+				select {
+					width: 100%;
+					height: 100%;
+					padding-left: 22px;
+					border: none;
+					background-color: #fff;
+					outline: none;
+					font-size: 16px;
+					font-weight: 600;
+					text-transform: uppercase;
+					cursor: pointer;
+					appearance: none;
+					position: absolute;
+					top: 0;
+					left: 0;
+					&::-ms-expand {
+					  display: none;
+					}
+				}
+			}
+			input {
+				width: 100%;
+				border: none;
+			}
+			&.active {
+				.modal_select {
+					display: block;
+					&:after {
+						font-family: "icomoon";
+						content: "\e901";
+						display: block;
+						position: absolute;
+						top: 50%;
+						right: 10px;
+						font-size: 18px;
+						transform: rotate(90deg) translate(-50%,0);
+						pointer-events:none
+					}
+				}
+				input {
+					width: 67%;
+					border-left: 1px solid $blue;
+				}
+				label {
+					position: absolute;
+					top: 110%;
+					left: 0px;
+					transform: translate(0,0);
+					font-size: 12px;
+				}
+			}
+		}
+	}
+	&_textarea {
+		margin-bottom: 18px;
+		position: relative;
+		textarea {
+			width: 100%;
+			height: 149px;
+			padding: 10px 20px;
+			border: 1px solid $blue;
+			outline: none;
+			border-radius: 0px;
+			resize: none;
+			font-family: "Montserrat";
+			font-size: 18px;
+			&::placeholder {
+				color: transparent;
+			}
+			&.active {
+				+ label {
+					left: 0;
+					top: 100%;
+					font-size: 12px;
+				}
+			}
+		}
+		label {
+			position: absolute;
+			top: 13px;
+			left: 25px;
+			font-size: 18px;
+			transition: .3s;
+		}
+	}
+	.btn {
+		padding: 12px 31px;
 	}
 	&_close {
 		width: 30px;
 		height: 30px;
-		background-color: #fff;
-		border-radius: 50%;
 		position: absolute;
-		top: -20px;
-		right: -20px;
+		top: 30px;
+		right: 54px;
 		cursor: pointer;
 		user-select: none;
-		box-shadow: 5px 5px 11px 0px rgba(0, 0, 0, 0.3);
 		&:after {
 			content: '';
 			display: block;
-			width: 15px;
+			width: 23px;
 			height: 2px;
-			background-color: #666;
+			background-color: $blue;
 			position: absolute;
 			top: 14px;
-			left: 8px;
+			left: 5px;
 			transform: rotate(-45deg);
+			transition: .3s;
 		}
 		&:before {
 			content: '';
 			display: block;
-			width: 15px;
+			width: 23px;
 			height: 2px;
-			background-color: #666;
+			background-color: $blue;
 			position: absolute;
 			top: 14px;
-			left: 8px;
+			left: 5px;
 			transform: rotate(45deg);
+			transition: .3s;
+		}
+		&:hover {
+			&:after {
+				background-color: $black;
+			}
+			&:before {
+				background-color: $black;
+			}
 		}
 	}
 	&_over {
@@ -62,10 +184,65 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background-color: rgba(30,30,30,.5);
+		background-color: rgba(0,0,0,.8);
 		z-index: 99;
 		&.open {
 			display: block;
+		}
+	}
+	@media (max-width: $break_md) {
+		&_input {
+			margin-bottom: 18px;
+			input {
+				height: 30px;
+			}
+			label {
+				font-size: 12px;
+			}
+			.modal_select {
+				select {
+					font-size: 12px;
+				}
+			}
+		}
+		&_textarea {
+			textarea {
+				font-size: 12px;
+			}
+			label {
+				font-size: 12px;
+			}
+		}
+	}
+	@media (max-width: $break_sm) {
+		&_input {
+			&.active {
+				input {
+					width: 62%;
+				}
+			}
+			.modal_select {
+				width: 38%;
+				select {
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+	@media (max-width: $break_xs) {
+		&_input {
+			&.active {
+				input {
+					width: 53%;
+					padding: 0 10px;
+				}
+			}
+			.modal_select {
+				width: 47%;
+				select {
+					padding-left: 10px;
+				}
+			}
 		}
 	}
 }

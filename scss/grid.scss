@@ -45,8 +45,10 @@ $break_xs: 576px;
 	padding-right: $offset;
 	margin-left: auto;
 	margin-right: auto;
-	@include sm(padding-left, $offset-sm);
-	@include sm(padding-right, $offset-sm);
+	@media (max-width: $break_sm + 1) {
+		padding-left: $offset-sm;
+		padding-right: $offset-sm;
+	}
 }
 @mixin clearfix() {
 	&:after {

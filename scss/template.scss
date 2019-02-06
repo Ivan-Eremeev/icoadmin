@@ -103,12 +103,68 @@ input {
 	padding: 11px 30px;
 	font-size: 18px;
 	font-family: "Raleway";
+	outline: none;
 	&::placeholder {
-		color: $black;
+		color: transparent;
+	}
+	+ label {
+		transition: .3s;
+	}
+	&:focus {
+		+ label {
+			left: 0;
+			top: 120%;
+			font-size: 12px;
+		}
+	}
+	&:not(:placeholder-shown) {
+		+ label {
+			left: 0;
+			top: 120%;
+			font-size: 12px;
+		}
+	}
+	&.error {
+		border-color: #ff0a0a;
+		+ label {
+			color: #ff0a0a;
+		}
 	}
 	@media (max-width: $break_md) {
 		padding: 7px 12px;
 		font-size: 12px;
+		&:focus {
+			+ label {
+				top: 130%;
+			}
+		}
+		&:not(:placeholder-shown) {
+			+ label {
+				top: 130%;
+			}
+		}
+	}
+	@media (max-width: $break_xs) {
+		&:focus {
+			+ label {
+				top: 125%;
+			}
+		}
+		&:not(:placeholder-shown) {
+			+ label {
+				top: 125%;
+			}
+		}
+	}
+}
+.mobile-hide {
+	@media (max-width: $break_md) {
+		display: none;
+	}
+}
+.mobile-visible {
+	@media (min-width: $break_md + 1) {
+		display: none;
 	}
 }
 
@@ -303,6 +359,11 @@ input {
 			padding: 8px 17px;
 		}
 	}
+	@media (max-width: $break_xs) {
+		.btn {
+			padding: 9px 10px;
+		}
+	}
 }
 
 .lines {
@@ -333,7 +394,7 @@ input {
 	@media (max-width: $break_md) {
 		&_line {
 			&:nth-child(1) {
-				left: 4%;
+				left: 6%;
 			}
 			&:nth-child(2) {
 				left: 34%;
@@ -345,7 +406,7 @@ input {
 				right: 34%;
 			}
 			&:nth-child(5) {
-				right: 4%;
+				right: 6%;
 			}
 		}
 	}
@@ -522,6 +583,9 @@ input {
 			max-width: 420px;
 			right: -60px;
 		}
+		.title-span {
+			font-size: 40px;
+		}
 	}
 	@media (max-width: $break_sm) {
 		padding: 0 5px 52px 13px;
@@ -546,6 +610,9 @@ input {
 		}
 		&_img {
 			width: 308px;
+		}
+		.title-span {
+			font-size: 24px;
 		}
 	}
 }
@@ -636,9 +703,99 @@ input {
 	&_input {
 		width: 100%;
 		margin-bottom: 25px;
+		position: relative;
+		input {
+			width: 100%;
+			border: 1px solid $blue;
+			border-radius: 0;
+			background-color: $grey;
+		}
+		label {
+			font-size: 18px;
+			position: absolute;
+			top: 50%;
+			left: 32px;
+			transform: translate(0,-50%);
+			cursor: text;
+		}
 	}
 	&_input-half {
 		width: 48%;
+		position: relative;
+		input {
+			width: 100%;
+			padding: 11px 15px;
+			border: 1px solid $blue;
+			border-radius: 0;
+			background-color: $grey;
+		}
+		label {
+			font-size: 18px;
+			position: absolute;
+			top: 50%;
+			left: 32px;
+			transform: translate(0,-50%);
+			cursor: text;
+		}
+		&--tel {
+			border: 1px solid $blue;
+			display: flex;
+			.modal_select {
+				display: none;
+				width: 40%;
+				position: relative;
+				select {
+					width: 100%;
+					height: 100%;
+					padding-left: 10px;
+					border: none;
+					background-color: $grey;
+					outline: none;
+					font-size: 16px;
+					font-weight: 600;
+					text-transform: uppercase;
+					cursor: pointer;
+					appearance: none;
+					position: absolute;
+					top: 0;
+					left: 0;
+					&::-ms-expand {
+					  display: none;
+					}
+				}
+			}
+			input {
+				width: 100%;
+				border: none;
+			}
+			&.active {
+				.modal_select {
+					display: block;
+					&:after {
+						font-family: "icomoon";
+						content: "\e901";
+						display: block;
+						position: absolute;
+						top: 50%;
+						right: 10px;
+						font-size: 18px;
+						transform: rotate(90deg) translate(-50%,0);
+						pointer-events:none
+					}
+				}
+				input {
+					width: 60%;
+					border-left: 1px solid $blue;
+				}
+				label {
+					position: absolute;
+					top: 110%;
+					left: 0px;
+					transform: translate(0,0);
+					font-size: 12px;
+				}
+			}
+		}
 	}
 	&_img {
 		max-width: 500px;
@@ -698,6 +855,25 @@ input {
 		}
 		&_input {
 			margin-bottom: 15px;
+			label {
+				font-size: 12px;
+			}
+		}
+		&_input-half {
+			&.active {
+				input {
+					width: 55%;
+				}
+			}
+			label {
+				font-size: 12px;
+			}
+			.modal_select {
+				width: 45%;
+				select {
+					font-size: 12px;
+				}
+			}
 		}
 		.btn {
 			padding: 8px 23px;
@@ -769,6 +945,17 @@ input {
 		&_input-half {
 			width: 100%;
 			margin-bottom: 16px;
+			&.active {
+				input {
+					width: 60%;
+				}
+			}
+			.modal_select {
+				width: 40%;
+				select {
+					padding-left: 10px;
+				}
+			}
 		}
 	}
 }
@@ -780,6 +967,8 @@ input {
 	&_title {
 		max-width: 700px;
 		line-height: 1;
+		position: relative;
+		z-index: 3;
 	}
 	&_img {
 		max-width: 454px;
@@ -788,7 +977,7 @@ input {
 		right: 177px;
 	}
 	&_item {
-		width: 360px;
+		max-width: 360px;
   	height: 234px;
   	margin-left: auto;
   	margin-right: auto;
@@ -800,7 +989,7 @@ input {
 		justify-content: center;
 		align-items: center;
 		height: 135px;
-		padding: 61px;
+		padding: 60px;
 		border-bottom: 1px solid $grey;
 		&--1 {
 
@@ -856,12 +1045,68 @@ input {
 			background-color: $blue;
 		}
 	}
+	@media (max-width: $break_xl) {
+		padding: 202px 100px 50px 100px;
+		&_img {
+			right: -100px;
+		}
+	}
+	@media (max-width: $break_md) {
+		padding: 111px 50px 50px 50px;	
+		&_title {
+			max-width: 400px;
+			line-height: 1.15;
+		}
+		&_img {
+			max-width: 341px;
+			top: 9px;
+			right: -40px;
+		}
+		&_item {
+			max-width: 314px;
+			height: 184px;
+		}
+		&_icon {
+			height: 110px;
+		}
+		&_progress {
+			padding: 4px 15px 0 15px;
+		}
+		&_money {
+			font-size: 24px;
+		}
+	}
+	@media (max-width: $break_sm) {
+		padding: 498px 12px 30px 12px;
+		&_title {
+			max-width: 320px;
+			line-height: 1.18;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		&_img {
+			width: 320px;
+			left: 50%;
+			top: 70px;
+			transform: translate(-50%,0);
+		}
+	}
 }
 .slider-block {
 	margin-top: 110px;
 	margin-left: -205px;
 	margin-right: -100px;
 	position: relative;
+	@media (max-width: $break_md) {
+		margin-left: -58px;
+		margin-right: -58px;
+		margin-top: 100px;
+	}
+	@media (max-width: $break_sm) {
+		margin-top: 34px;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 .slider {
 	position: relative;
@@ -892,6 +1137,24 @@ input {
 		background-color: #a1acb9;
 		color: #fff
 	}
+	@media (max-width: $break_md) {
+		bottom: 18px;
+		&_prev {
+			left: 53px;
+		}
+		&_next {
+			left: 113px;
+		}
+	}
+	@media (max-width: $break_sm) {
+		bottom: 27px;
+		&_prev {
+			left: 3px;
+		}
+		&_next {
+			left: 58px;
+		}
+	}
 }
 .slick-slide {
 	outline: none;
@@ -915,6 +1178,7 @@ input {
 		top: -59px;
 		left: 62%;
 		transform: translate(-50%,0);
+		z-index: 2;
 	}
 	&_title {
 		max-width: 416px;
@@ -927,35 +1191,33 @@ input {
 	}
 	&_col {
 		@include col(6);
+		@include col-md(12);
 		margin-bottom: $gutter;
+		position: relative;
+		z-index: 3;
 	}
 	&_item {
 		border: 1px solid $grey;
+		background-color: #fff;
 		&--market-watch {
-			.mass-media_subtitle {
-				img {
-					max-width: 246px;
-				}
+			.mass-media_logo {
+				max-width: 246px;
 			}
 			.mass-media_description {
 				padding-bottom: 30px;
 			}
 		}
 		&--dijital-journal {
-			.mass-media_subtitle {
-				img {
-					max-width: 246px;
-				}
+			.mass-media_logo {
+				max-width: 246px;
 			}
 			.mass-media_description {
 				padding-bottom: 26px;
 			}
 		}
 		&--coinspectator {
-			.mass-media_subtitle {
-				img {
-					max-width: 216px;
-				}
+			.mass-media_logo {
+				max-width: 216px;
 			}
 			.mass-media_description {
 				padding: 10px 10px 0px 10px;
@@ -963,10 +1225,8 @@ input {
 			}
 		}
 		&--yahoo {
-			.mass-media_subtitle {
-				img {
-					max-width: 107px;
-				}
+			.mass-media_logo {
+				max-width: 107px;
 			}
 			.mass-media_description {
 				padding: 5px 5px 5px 5px;
@@ -980,6 +1240,9 @@ input {
 		height: 62px;
 		padding: 10px;
 		background-color: $grey;
+		img {
+			display: block;
+		}
 	}
 	&_description {
 		padding: 0 22px 22px 22px;
@@ -989,6 +1252,45 @@ input {
 	}
 	&_btn {
 
+	}
+	@media (max-width: $break_xl) {
+		&_left {
+			padding-left: 100px;
+		}
+		&_title {
+			margin-left: 0;
+		}
+		&_right {
+			padding: 0 100px 0 74px;
+		}
+	}
+	@media (max-width: $break_md) {
+		padding-top: 57px;
+		&_left {
+			width: 50%;
+			padding-top: 563px;
+			padding-left: 46px;
+		}
+		&_img {
+			max-width: 437px;
+			top: -16px;
+			left: -80px;
+			transform: translate(0);
+		}
+		&_title {
+			line-height: 1.15;
+		}
+		&_right {
+			width: 50%;
+			padding: 0 69px 0 15px;
+		}
+		.btn {
+			margin-top: 22px;
+			padding: 17px 28px;
+		}
+	}
+	@media (max-width: $break_sm) {
+		display: none;
 	}
 }
 
@@ -1095,6 +1397,194 @@ input {
 		font-weight: 600;
 		color: $blue;
 	}
+	@media (max-width: $break_xl) {
+		&_title {
+			margin-left: -100px;
+		}
+	}
+	@media (max-width: $break_lg) {
+		padding: 14px 47px;
+		&_title {
+			margin-bottom: 12px;
+			margin-left: 0;
+		}
+		&_text {
+			font-size: 16px;
+			margin-bottom: 51px;
+		}
+		&_col {
+			flex-wrap: wrap;
+			&:nth-child(1) {
+				width: 35%;
+				padding-top: 41px;
+			}
+			&:nth-child(2) {
+				width: 34.5%;
+				padding-top: 125px;
+			}
+			&:nth-child(3) {
+				width: 30.5%;
+			}
+			&:nth-child(4) {
+				width: 35%;
+				padding-top: 8px;
+			}
+			&:nth-child(5) {
+				width: 34.5%;
+				padding-top: 51px;
+				.team_item {
+					margin-left: 0;
+				}
+			}
+			&:nth-child(6) {
+				width: 30.5%;
+				padding-top: 0px;
+				margin-top: -68px;
+				.team_item {
+					margin-left: 0;
+				}
+			}
+			&:nth-child(7) {
+				width: 35%;
+				padding-top: 18px;
+				.team_item {
+					margin-left: 0;
+				}
+			}
+			&:nth-child(8) {
+				width: 34.5%;
+				padding-top: 66px;
+				.team_item {
+					margin-left: 0;
+				}
+			}
+			&:nth-child(9) {
+				width: 30.5%;
+				padding-top: 0px;
+				margin-top: -69px;
+			}
+			&:nth-child(10) {
+				width: 35%;
+				padding-top: 2px;
+			}
+			&:nth-child(11) {
+				width: 34.5%;
+				padding-top: 69px;
+			}
+			&:nth-child(12) {
+				width: 30.5%;
+				margin-top: -52px;
+			}
+		}
+		&_img {
+			margin-bottom: 24px;
+		}
+		&_name {
+			font-size: 22px;
+		}
+		&_position {
+			font-size: 16px;
+		}
+	}
+	@media (max-width: $break_sm) {
+		padding: 24px 12px;
+		&_title {
+			margin-bottom: 25px;
+		}
+		&_text {
+			margin-bottom: 0;
+		}
+		&_img {
+			margin-bottom: 14px;
+		}
+		&_name {
+			font-size: 14px;
+		}
+		&_position {
+			font-size: 14px;
+		}
+		&_col {
+			&:nth-child(1) {
+				width: 47.5%;
+				padding-top: 41px;
+			}
+			&:nth-child(2) {
+				width: 52.5%;
+				padding-top: 125px;
+				padding-left: 16px;
+			}
+			&:nth-child(3) {
+				width: 47.5%;
+				margin-top: -36px;
+			}
+			&:nth-child(4) {
+				width: 52.5%;
+				padding-left: 16px;
+				padding-top: 45px;
+			}
+			&:nth-child(5) {
+				width: 47.5%;
+				padding-top: 0px;
+				margin-top: -34px;
+				.team_item {
+					margin-left: 0;
+				}
+			}
+			&:nth-child(6) {
+				width: 52.5%;
+				padding-left: 16px;
+				padding-top: 49px;
+				margin-top: 0px;
+				.team_item {
+					margin-left: 0;
+				}
+			}
+			&:nth-child(7) {
+				width: 47.5%;
+				padding-top: 0px;
+				margin-top: -36px;
+				.team_item {
+					margin-left: 0;
+				}
+			}
+			&:nth-child(8) {
+				width: 52.5%;
+				padding-left: 16px;
+				padding-top: 46px;
+				.team_item {
+					margin-left: 0;
+				}
+			}
+			&:nth-child(9) {
+				width: 47.5%;
+				padding-top: 0px;
+				margin-top: -35px;
+			}
+			&:nth-child(10) {
+				width: 52.5%;
+				padding-left: 16px;
+				padding-top: 48px;
+			}
+			&:nth-child(11) {
+				width: 47.5%;
+				padding-top: 0px;
+				margin-top: -52px;
+			}
+			&:nth-child(12) {
+				width: 52.5%;
+				padding-left: 16px;
+				margin-top: -52px;
+			}
+		}
+		&_item {
+			&.mobile-hide {
+				display: block;
+			}
+			&.mobile-visible {
+				display: none;
+			}
+		}
+	}
 }
 
 .partners {
@@ -1110,35 +1600,31 @@ input {
 	}
 	&_col {
 		@include col(3);
+		@include col-sm(6);
 		margin-bottom: $gutter;
 	}
 	&_item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		height: 142px;
-		padding: 33px 20px 0 20px;
+		padding: 0 10px;
 		border: 1px solid $grey;
+		background-color: #fff;
 	}
 	&_icon {
-		text-align: center;
 		&--sumsub {
-			img {
-				max-width: 115px;
-			}
+			max-width: 115px;
 		}
 		&--juryonline {
-			img {
-				max-width: 119px;
-			}
+			max-width: 119px;
 		}
 		&--moonrate {
-			img {
-				max-width: 199px;
-			}
+			max-width: 199px;
 		}
 		&--trackico {
-			img {
-				max-width: 168px;
-				margin-top: 9px;
-			}
+			max-width: 168px;
+			margin-top: 9px;
 		}
 	}
 	img {
@@ -1154,6 +1640,8 @@ input {
 	}
 	&_form {
 		max-width: 650px;
+		position: relative;
+		z-index: 2;
 	}
 	&_subtitle {
 		margin-bottom: 35px;
@@ -1163,9 +1651,24 @@ input {
 
 	}
 	&_input {
+		display: inline-block;
 		width: 100%;
 		max-width: 390px;
 		margin-right: 19px;
+		position: relative;
+		input {
+			width: 100%;
+			border: 1px solid $blue;
+			border-radius: 0;
+			background-color: $grey;
+		}
+		label {
+			position: absolute;
+			top: 50%;
+			left: 32px;
+			transform: translate(0,-50%);
+			font-size: 18px;
+		}
 	}
 	&_btn {
 		padding: 12px 31px;
@@ -1175,6 +1678,91 @@ input {
 		position: absolute;
 		top: -53px;
 		right: 162px;
+		z-index: 1;
+	}
+	@media (max-width: $break_md) {
+		padding: 96px 47px 0 47px;
+		&_title {
+			margin-bottom: 27px;
+		}
+		&_item {
+			max-width: 153px;
+			height: 84px;
+			padding: 4px;
+		}
+		&_icon {
+			&--sumsub {
+				max-width: 62px;
+			}
+			&--juryonline {
+				max-width: 75px;
+			}
+			&--moonrate {
+				max-width: 119px;
+			}
+			&--trackico {
+				max-width: 101px;
+				margin-top: 9px;
+			}
+		}
+		&_block {
+			margin-top: 112px;
+			padding: 56px 54px 55px 54px;
+			margin-left: -55px;
+			margin-right: -55px;
+			line-height: 1.15;
+		}
+		&_form {
+			max-width: 380px;
+		}
+		&_subtitle {
+			margin-bottom: 24px;
+		}
+		&_input {
+			max-width: 346px;
+			margin-bottom: 16px;
+			label {
+				font-size: 12px;
+			}
+		}
+		&_btn {
+			padding: 8px 45px;
+		}
+		&_img {
+			max-width: 378px;
+			top: -30px;
+			right: -61px;
+		}
+	}
+	@media (max-width: $break_sm) {
+		padding: 56px 12px 0 12px;
+		&_row {
+			margin-left: -15px;
+		}
+		&_col {
+			padding-left: 15px !important;
+			margin-bottom: 15px;
+		}
+		&_item {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		&_block {
+			margin-left: -20px;
+			margin-right: -20px;
+			margin-top: 194px;
+			padding: 222px 20px 40px 20px;
+		}
+		&_img {
+			width: 315px;
+			left: 50%;
+			top: -160px;
+			transform: translate(-50%,0);
+		}
+		&_subtitle {
+			letter-spacing: 0.5px;
+			margin-bottom: 27px;
+		}
 	}
 }
 
@@ -1182,5 +1770,11 @@ input {
 	padding: 59px 204px;
 	&_copyright {
 		font-size: 16px;
+	}
+	@media (max-width: $break_md) {
+		padding: 35px 47px;
+	}
+	@media (max-width: $break_sm) {
+		padding: 28px 12px;
 	}
 }

@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 	// libs-settings/fancybox_settings.js
 	// libs-settings/mmenu_settings.js
-	// @prepros-prepend libs-settings/slick_settings.js
+	//= libs-settings/slick_settings.js
 	// libs-settings/wow_js_settings.js
 	// libs-settings/fullpage_settings.js
 
@@ -44,7 +44,7 @@ $(document).ready(function () {
 	// screenHeight();
 
 	// Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
-	// $('#main__menu a[href^="#"]').click( function(){ 
+	// $('#menu a[href^="#"]').click( function(){ 
 	// 	var scroll_el = $(this).attr('href'); 
 	// 	if ($(scroll_el).length != 0) {
 	// 	$('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
@@ -63,7 +63,8 @@ $(document).ready(function () {
 	});
 
 	// Inputmask.js // Маска для поля ввода телефона
-	// $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
+	$('.input-tel input[name=tel]').inputmask("(999)999-99-99",{ showMaskOnHover: false });
+	// $('.consultation_input-half input[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
 
 	// Изменяет размер шрифта у тэга html взависимости от размера экрана (для резиновых страниц)(размеры должны быть в rem)
 	// function fontResize() {
@@ -111,21 +112,21 @@ $(document).ready(function () {
 	// });
 
 	// Модальное окно
-	// $('.modal-trigger').on('click', function() {
-	// 	var data = $(this).data('modal'),
-	// 			modalOver = $('.modal_over'),
-	// 			modal = $('#modal-' + data);
-	// 	modal.toggleClass('open')
-	// 	.next('.modal_over').toggleClass('open');
-	// 	$('.modal_close').on('click', function() {
-	// 		modal.removeClass('open'),
-	// 		modalOver.removeClass('open');
-	// 	});
-	// 	modalOver.on('click', function() {
-	// 		modal.removeClass('open');
-	// 		modalOver.removeClass('open');
-	// 	});
-	// });
+	$('.modal-trigger').on('click', function() {
+		var data = $(this).data('modal'),
+				modalOver = $('.modal_over'),
+				modal = $('#modal-' + data);
+		modal.toggleClass('open')
+		.next('.modal_over').toggleClass('open');
+		$('.modal_close').on('click', function() {
+			modal.removeClass('open'),
+			modalOver.removeClass('open');
+		});
+		modalOver.on('click', function() {
+			modal.removeClass('open');
+			modalOver.removeClass('open');
+		});
+	});
 
 	// Стилизация полосы прокрутки
 	// $('#scrollbar1').tinyscrollbar({
@@ -218,5 +219,65 @@ $(document).ready(function () {
 	// 	tooltipDisable(); // Отключение всплывающей подсказки
 	// 	countNumber(); // Анимация увеличения числа
 	// });
-	
+
+	// Делает активным пункт меню при скролле до блока
+	function menuItemActive() {
+		var lastId,
+    topMenu = $("#menu_list"),
+    topMenuHeight = topMenu.outerHeight(),
+    menuItems = topMenu.find("a"),
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+		menuItems.click(function(e){
+		  var href = $(this).attr("href"),
+		      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+		  $('html, body').stop().animate({ 
+		      scrollTop: offsetTop
+		  }, 300);
+		  e.preventDefault();
+		});
+		$(window).scroll(function(){
+		  var fromTop = $(this).scrollTop()+topMenuHeight;
+		  var cur = scrollItems.map(function(){
+		    if ($(this).offset().top < fromTop)
+		      return this;
+		  });
+		  cur = cur[cur.length-1];
+		  var id = cur && cur.length ? cur[0].id : "";
+		  if (lastId !== id) {
+		      lastId = id;
+		      menuItems
+		        .parent().removeClass("active")
+		        .end().filter("[href='#"+id+"']").parent().addClass("active");
+		  }                   
+		});
+	};
+	menuItemActive();
+
+	// Получение textarea фокуса
+	$('textarea')
+	.focus(function() { 
+		$(this).addClass('active')
+	})
+	.blur(function() { 
+		if ($(this)[0].value == '') { 
+			$(this).removeClass('active')
+		} 
+	});
+
+	// Изменение поля ввода телефона при клике
+	$('.input-tel').click(function() {
+		var div = $(this);
+		div.addClass('active'),
+		input = div.find('input');
+		$(document).mouseup(function (e){
+			if (!div.is(e.target)
+			    && div.has(e.target).length === 0 && input.val() == '') {
+				div.removeClass('active');
+			}
+		});
+	});
+
 });

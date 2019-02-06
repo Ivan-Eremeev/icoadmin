@@ -37,15 +37,23 @@ var slider = $('.slider').slick({
   variableWidth: false, // Подгоняет ширину слайдов под размер элемента,
   responsive: [	// Адаптация
     {
-    breakpoint: 992,
+    breakpoint: 1400,
       settings: {
-        arrows: false,
+        centerPadding: '60px'
       }
     },
     {
-	  breakpoint: 720,
+    breakpoint: 1024,
       settings: {
-        arrows: false,
+        slidesToShow: 2,
+        centerPadding: '60px'
+      }
+    },
+    {
+	  breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false
       }
     }
   ]
