@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-	// @prepros-prepend libs-settings/slick_settings.js
+	//= libs-settings/slick_settings.js
 
 	// Брэйкпоинты js
 	var mediaXs = 576,
