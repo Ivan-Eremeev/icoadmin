@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-	//= libs-settings/slick_settings.js
+	// @prepros-prepend libs-settings/wow_js_settings.js
+	// @prepros-prepend libs-settings/slick_settings.js
 
 	// Брэйкпоинты js
 	var mediaXs = 576,
@@ -274,6 +275,13 @@ $(document).ready(function () {
 				div.removeClass('active');
 			}
 		});
+	});
+
+	// Анимация при наведении
+	$('.anim').hover(function() {
+		$(this).find('img').addClass('pulse');
+	}, function() {
+		$(this).find('img').removeClass('pulse');
 	});
 
 });
